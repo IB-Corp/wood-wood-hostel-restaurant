@@ -1,0 +1,13 @@
+<script setup>
+import { RouterView } from 'vue-router'
+import AppNav from './components/AppNav.vue'
+</script>
+
+<template>
+  <div>
+    <AppNav />
+    <main>
+      <RouterView />
+    </main>
+  </div>
+</template>
