@@ -16,6 +16,20 @@
       </div>
     </div>
 
+    <!-- Restaurant callout -->
+    <div class="restaurant-banner">
+      <div class="rb-text">
+        <div class="rb-eyebrow">{{ t.rbEyebrow }}</div>
+        <h2 class="rb-title">{{ t.rbTitle }}</h2>
+        <p class="rb-body">{{ t.rbBody }}</p>
+        <div class="rb-free-badge">🎁 {{ t.rbFree }}</div>
+        <div class="rb-chips">
+          <span v-for="chip in chips" :key="chip" class="rb-chip">{{ chip }}</span>
+        </div>
+      </div>
+      <img class="rb-image" src="/gmaps-photos/breakfast.jpg" :alt="t.rbEyebrow" />
+    </div>
+
     <div class="gallery-grid">
       <div v-for="item in galleryImages" :key="item.src" class="gallery-card">
         <img :src="item.src" :alt="item.title" />
@@ -40,6 +54,11 @@ const STRINGS = {
     r3: 'Private Room',      r3d: 'Double bed · Garden view · Patio · Quiet and comfortable',           r3p: 'from $18 / night',
     g1: 'Front entrance', g2: 'Night exterior', g3: 'Lobby seating', g4: 'Upper lounge',
     g5: 'Common dining area', g6: 'Indoor dining', g7: 'Private bunk bed', g8: 'Breakfast setup',
+    rbEyebrow: 'On-site Restaurant',
+    rbTitle: 'Good food, right downstairs.',
+    rbBody: 'Our ground-floor restaurant serves Asian and Western breakfast, hearty lunch plates, specialty coffee, and cold drinks. Hostel guests enjoy 10% off every meal. Come for the food, stay for the vibe.',
+    rbFree: 'Free breakfast with coffee & tea included for all hostel guests',
+    rbChip1: '🍳 Asian & Western Breakfast', rbChip2: '☕ Specialty Coffee', rbChip3: '🍜 Lunch Plates', rbChip4: '10% off for guests',
   },
   zh: {
     title: '青旅客房 & 图库',
@@ -49,6 +68,11 @@ const STRINGS = {
     r3: '私人房间',   r3d: '双人床 · 花园景观 · 露台 · 安静舒适',              r3p: '起价 $18 / 晚',
     g1: '正门入口', g2: '夜间外观', g3: '大厅座位', g4: '上层休息区',
     g5: '公共餐饮区', g6: '室内用餐', g7: '私人双层床', g8: '早餐布置',
+    rbEyebrow: '附设餐厅',
+    rbTitle: '美食，就在楼下。',
+    rbBody: '一楼餐厅供应亚洲和西式早餐、丰盛的午餐、特色咖啡和冷饮。住客用餐享九折优惠。为美食而来，因氛围而留。',
+    rbFree: '所有住客免费享用早餐、咖啡及茶',
+    rbChip1: '🍳 亚洲及西式早餐', rbChip2: '☕ 特色咖啡', rbChip3: '🍜 午餐', rbChip4: '住客九折优惠',
   },
   lo: {
     title: 'ຫ້ອງພັກ & ຮູບພາບ',
@@ -58,6 +82,11 @@ const STRINGS = {
     r3: 'ຫ້ອງສ່ວນຕົວ', r3d: 'ຕຽງຄູ່ · ວິວສວນ · ລະບຽງ · ງຽບສະຫງົບ',                   r3p: 'ເລີ່ມ $18 / ຄືນ',
     g1: 'ທາງເຂົ້າຫຼັກ', g2: 'ພາຍນອກຕອນກາງຄືນ', g3: 'ທີ່ນັ່ງຫ້ອງຮັບແຂກ', g4: 'ຫ້ອງນັ່ງຊັ້ນເທິງ',
     g5: 'ເຂດກິນເຂົ້າຮ່ວມ', g6: 'ກິນເຂົ້າໃນຮ້ານ', g7: 'ຕຽງ 2 ຊັ້ນສ່ວນຕົວ', g8: 'ການຈັດວາງອາຫານເຊົ້າ',
+    rbEyebrow: 'ຮ້ານອາຫານໃນສະຖານທີ່',
+    rbTitle: 'ອາຫານແຊບ, ຢູ່ຊັ້ນລຸ່ມ.',
+    rbBody: 'ຮ້ານອາຫານຊັ້ນລຸ່ມບໍລິການອາຫານເຊົ້າແບບອາຊີ ແລະ ຕາເວັນຕົກ, ອາຫານທ່ຽງ, ກາເຟພິເສດ ແລະ ເຄື່ອງດື່ມເຢັນ. ແຂກທີ່ພັກໄດ້ສ່ວນຫຼຸດ 10% ທຸກຄາບ. ມາກິນ, ຢູ່ຕໍ່ເພາະບັນຍາກາດ.',
+    rbFree: 'ອາຫານເຊົ້າ, ກາເຟ ແລະ ຊາຟຣີ ສຳລັບແຂກທີ່ພັກທຸກທ່ານ',
+    rbChip1: '🍳 ອາຫານເຊົ້າ', rbChip2: '☕ ກາເຟພິເສດ', rbChip3: '🍜 ອາຫານທ່ຽງ', rbChip4: 'ສ່ວນຫຼຸດ 10% ສຳລັບແຂກ',
   },
 }
 
@@ -78,6 +107,10 @@ const galleryImages = computed(() => [
   { src: '/gmaps-photos/inside1.jpg',  title: t.value.g6 },
   { src: '/gmaps-photos/bed1.jpg',     title: t.value.g7 },
   { src: '/gmaps-photos/breakfast.jpg',title: t.value.g8 },
+])
+
+const chips = computed(() => [
+  t.value.rbChip1, t.value.rbChip2, t.value.rbChip3, t.value.rbChip4,
 ])
 </script>
 
@@ -111,6 +144,80 @@ const galleryImages = computed(() => [
   object-fit: cover;
   box-shadow: 0 18px 48px rgba(0, 0, 0, 0.14);
 }
+/* Restaurant banner */
+.restaurant-banner {
+  display: flex;
+  align-items: center;
+  gap: 36px;
+  background: #2c1810;
+  border-radius: 20px;
+  padding: 36px 40px;
+  margin-bottom: 40px;
+  overflow: hidden;
+}
+.rb-text { flex: 1; }
+.rb-eyebrow {
+  font-size: 11px;
+  font-weight: 600;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: #d4a574;
+  margin-bottom: 10px;
+}
+.rb-title {
+  font-size: clamp(22px, 3vw, 30px);
+  font-weight: 700;
+  color: #f5e6c8;
+  margin: 0 0 14px;
+  line-height: 1.2;
+}
+.rb-body {
+  font-size: 15px;
+  color: rgba(245, 230, 200, 0.75);
+  line-height: 1.7;
+  margin: 0 0 20px;
+  max-width: 520px;
+}
+.rb-free-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  background: #8b6914;
+  color: #fff8e8;
+  border-radius: 8px;
+  padding: 8px 16px;
+  font-size: 13px;
+  font-weight: 600;
+  margin-bottom: 14px;
+}
+.rb-chips {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+.rb-chip {
+  background: rgba(212, 165, 116, 0.15);
+  border: 1px solid rgba(212, 165, 116, 0.35);
+  color: #d4a574;
+  border-radius: 20px;
+  padding: 5px 14px;
+  font-size: 13px;
+  font-weight: 500;
+}
+.rb-image {
+  flex-shrink: 0;
+  width: 220px;
+  height: 200px;
+  object-fit: cover;
+  border-radius: 12px;
+  opacity: 0.85;
+}
+
+@media (max-width: 700px) {
+  .restaurant-banner { flex-direction: column; padding: 28px 24px; gap: 20px; }
+  .rb-image { width: 100%; height: 180px; }
+}
+
 .room-grid {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
