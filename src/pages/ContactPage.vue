@@ -21,23 +21,23 @@
       <!-- Contact cards -->
       <div class="cards-col">
 
-        <!-- Address -->
-        <div class="contact-card">
+        <!-- Email -->
+        <a
+          href="mailto:woodwoodcafe@gmail.com"
+          class="contact-card contact-card--action email"
+        >
           <div class="card-icon">
             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round">
-              <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z"/><circle cx="12" cy="10" r="3"/>
+              <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/>
+              <polyline points="22,6 12,13 2,6"/>
             </svg>
           </div>
           <div class="card-body">
-            <div class="card-label">{{ t.address }}</div>
-            <div class="card-value">199 Rue Pangkham<br>Vientiane, Laos</div>
-            <a
-              href="https://maps.app.goo.gl/woodwood"
-              target="_blank" rel="noopener"
-              class="card-link"
-            >{{ t.openMaps }}</a>
+            <div class="card-label">{{ t.email }}</div>
+            <div class="card-value">woodwoodcafe@gmail.com</div>
+            <div class="card-cta">{{ t.sendEmail }}</div>
           </div>
-        </div>
+        </a>
 
         <!-- WhatsApp -->
         <a
@@ -143,8 +143,8 @@ const STRINGS = {
     title: 'Find Us',
     sub: 'We are in the heart of Vientiane — come say hello.',
     mapTitle: 'Wood Wood location on Google Maps',
-    address: 'Our Address',
-    openMaps: 'Open in Google Maps →',
+    email: 'Email',
+    sendEmail: 'Send us an email →',
     chatNow: 'Chat with us →',
     visitPage: 'Visit our page →',
     addWeChat: 'Tap to copy ID',
@@ -157,8 +157,8 @@ const STRINGS = {
     title: '找到我们',
     sub: '我们位于万象市中心——欢迎来打招呼。',
     mapTitle: '谷歌地图上的Wood Wood位置',
-    address: '我们的地址',
-    openMaps: '在谷歌地图中打开 →',
+    email: '电子邮件',
+    sendEmail: '发送邮件 →',
     chatNow: '与我们聊天 →',
     visitPage: '访问我们的主页 →',
     addWeChat: '点击复制ID',
@@ -171,8 +171,8 @@ const STRINGS = {
     title: 'ຊອກຫາພວກເຮົາ',
     sub: 'ພວກເຮົາຢູ່ໃຈກາງວຽງຈັນ — ມາທັກທາຍພວກເຮົາ.',
     mapTitle: 'ສະຖານທີ່ Wood Wood ໃນ Google Maps',
-    address: 'ທີ່ຢູ່ຂອງພວກເຮົາ',
-    openMaps: 'ເປີດໃນ Google Maps →',
+    email: 'ອີເມວ',
+    sendEmail: 'ສົ່ງອີເມວຫາພວກເຮົາ →',
     chatNow: 'ສົນທະນາກັບພວກເຮົາ →',
     visitPage: 'ເຂົ້າຊົມໜ້າຂອງພວກເຮົາ →',
     addWeChat: 'ກົດເພື່ອຄັດລອກ ID',
